@@ -161,7 +161,6 @@ body {
     color: #FFFFFF;
     opacity: 1;
     clip-path: inset(0 100% 0 0);
-    will-change: clip-path;
 }
 
 /* Section Three */
@@ -207,7 +206,6 @@ body {
     opacity: 1;
     clip-path: inset(0 100% 0 0);
     margin: 0 0 2.5rem 0;
-    will-change: clip-path;
 }
 
 .ar-rahman-img {
@@ -223,13 +221,11 @@ body {
 .horizontal-scroll-container {
     display: flex;
     width: 200vw;
-    will-change: transform;
 }
 
 .horizontal-scroll-container section {
     width: 100vw;
     flex-shrink: 0;
-    backface-visibility: hidden;
 }
 
 /* Section Four */
@@ -262,7 +258,6 @@ body {
     opacity: 1;
     clip-path: inset(0 100% 0 0);
     width: 100%;
-    will-change: clip-path;
 }
 
 .section-four-text .highlight {
@@ -276,10 +271,8 @@ body {
 .ar-rahman-img-2 {
     width: 100%;
     height: auto;
-    transform: scale(0) translateZ(0);
+    transform: scale(0);
     opacity: 0;
-    will-change: transform, opacity;
-    backface-visibility: hidden;
 }
 
 /* Mobile Responsive */

@@ -116,7 +116,22 @@ gsap.fromTo('.section-two-text',
     }
 });
 
-// Section Three - Title typing effect from left
+// Horizontal Scroll - Section 3 to Section 4
+const horizontalScroll = gsap.to('.horizontal-scroll-container', {
+    x: '-100vw',
+    ease: 'none',
+    force3D: true,
+    scrollTrigger: {
+        trigger: '.horizontal-scroll-wrapper',
+        start: 'top top',
+        end: '+=200%',
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1
+    }
+});
+
+// Section Three - Title typing effect (within horizontal scroll)
 gsap.fromTo('.section-three-title',
 {
     clipPath: 'inset(0 100% 0 0)'
@@ -127,8 +142,9 @@ gsap.fromTo('.section-three-title',
     ease: 'power2.inOut',
     scrollTrigger: {
         trigger: '.section-three',
-        start: 'top 70%',
-        toggleActions: 'play none none reverse'
+        start: 'left 70%',
+        toggleActions: 'play none none reverse',
+        containerAnimation: horizontalScroll
     }
 });
 
@@ -136,28 +152,13 @@ gsap.fromTo('.section-three-title',
 gsap.to('.ar-rahman-img',
 {
     scale: 1.1,
-    duration: 1,
-    ease: 'power2.inOut',
+    ease: 'none',
     scrollTrigger: {
         trigger: '.ar-rahman-img',
-        start: 'top 70%',
-        end: 'bottom 30%',
-        toggleActions: 'play reverse play reverse'
-    }
-});
-
-// Horizontal Scroll - Section 3 to Section 4
-const horizontalScroll = gsap.to('.horizontal-scroll-container', {
-    x: '-100vw',
-    ease: 'none',
-    force3D: true,
-    scrollTrigger: {
-        trigger: '.horizontal-scroll-wrapper',
-        start: 'top -10%',
-        end: '+=200%',
+        start: 'top 60%',
+        end: 'bottom 40%',
         scrub: 1,
-        pin: true,
-        anticipatePin: 1
+        containerAnimation: horizontalScroll
     }
 });
 

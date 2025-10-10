@@ -127,23 +127,8 @@ gsap.fromTo('.section-three-title',
     ease: 'power2.inOut',
     scrollTrigger: {
         trigger: '.section-three',
-        start: 'top 60%',
-        toggleActions: 'play none none none'
-    }
-});
-
-// Horizontal Scroll - Section 3 to Section 4
-const horizontalScroll = gsap.to('.horizontal-scroll-container', {
-    x: '-100vw',
-    ease: 'none',
-    force3D: true,
-    scrollTrigger: {
-        trigger: '.horizontal-scroll-wrapper',
-        start: 'top top',
-        end: '+=100%',
-        scrub: 0.5,
-        pin: true,
-        anticipatePin: 1
+        start: 'top 70%',
+        toggleActions: 'play none none reverse'
     }
 });
 
@@ -161,12 +146,27 @@ gsap.to('.ar-rahman-img',
     }
 });
 
+// Horizontal Scroll - Section 3 to Section 4
+const horizontalScroll = gsap.to('.horizontal-scroll-container', {
+    x: '-100vw',
+    ease: 'none',
+    force3D: true,
+    scrollTrigger: {
+        trigger: '.horizontal-scroll-wrapper',
+        start: 'top -10%',
+        end: '+=200%',
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1
+    }
+});
+
 // Section Four - Sequenced animations
 const section4Timeline = gsap.timeline({
     scrollTrigger: {
         trigger: '.section-four',
-        start: 'left 50%',
-        toggleActions: 'play none none none',
+        start: 'left 60%',
+        toggleActions: 'play reverse play reverse',
         containerAnimation: horizontalScroll
     }
 });

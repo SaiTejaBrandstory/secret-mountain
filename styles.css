@@ -566,15 +566,11 @@ body {
     font-size: 32px;
     cursor: pointer;
     transition: opacity 200ms ease;
-    opacity: 1; /* visible by default so user recognizes it's a video */
+    opacity: 0; /* hidden by default; shown only on hover */
     pointer-events: auto;
 }
 
-/* When video is playing, hide the overlay; keep it visible on hover */
-.video-full-wrapper.playing .overlay-play {
-    opacity: 0;
-    pointer-events: none;
-}
+/* When video is playing, hide the overlay; visibility controlled purely by hover */
 
 .video-full-wrapper:hover .overlay-play {
     opacity: 1;

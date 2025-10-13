@@ -81,6 +81,72 @@ gsap.to('.section-two', {
     }
 });
 
+// Contact modal open/close + submit (mailto)
+document.addEventListener('DOMContentLoaded', function () {
+    const openBtn = document.querySelector('.contact-cta');
+    const modal = document.getElementById('contactModal');
+    const backdrop = document.getElementById('contactBackdrop');
+    const closeBtn = document.getElementById('contactClose');
+    const form = document.getElementById('contactForm');
+
+    if (!openBtn || !modal) return;
+
+    function openModal() {
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        // focus first field for accessibility
+        const first = document.getElementById('contactName');
+        if (first) first.focus();
+    }
+
+    function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+    }
+
+    openBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName')?.value?.trim() || '';
+            const email = document.getElementById('contactEmail')?.value?.trim() || '';
+            const type = document.getElementById('contactType')?.value || '';
+            const subject = document.getElementById('contactSubject')?.value?.trim() || '';
+
+            // basic validation
+            if (!name || !email || !type || !subject) {
+                alert('Please fill all fields.');
+                return;
+            }
+
+            const mailtoTo = 'enquiry@radiantsouls.ai';
+            const mailtoSubject = encodeURIComponent(`[${type}] ${subject}`);
+            const bodyLines = [
+                `Name: ${name}`,
+                `Email: ${email}`,
+                `Enquiry Type: ${type}`,
+                '',
+                'Message:',
+                subject
+            ];
+            const mailtoBody = encodeURIComponent(bodyLines.join('\n'));
+            const href = `mailto:${mailtoTo}?subject=${mailtoSubject}&body=${mailtoBody}`;
+            window.location.href = href;
+            closeModal();
+        });
+    }
+});
+
 // Section Two - Logo fade in on scroll
 gsap.fromTo('.section-two-logo', 
 {

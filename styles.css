@@ -15,6 +15,25 @@ body {
     overflow-x: hidden;
 }
 
+/* Horizontal scroll sections (3-6) */
+html, body { overscroll-behavior: none; }
+.hscroll-container {
+    width: 400vw; /* 4 panels */
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.panel {
+    width: 100vw;
+    flex: 0 0 100vw;
+}
+
+/* Mobile: disable horizontal flow and restore vertical stacking */
+@media (max-width: 992px) {
+    .hscroll-container { width: auto; display: block; }
+    .panel { width: auto; flex: none; }
+}
+
 .hero {
     width: 100%;
     height: 100vh;

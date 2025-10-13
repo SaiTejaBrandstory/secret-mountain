@@ -350,3 +350,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// Horizontal scroll for sections 3-6 (pin & snap)
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('hscroll-3-6');
+    if (!container) return;
+    const panels = gsap.utils.toArray('#hscroll-3-6 .panel');
+
+    // Enable horizontal pin only on >= 993px; fall back to vertical on mobile
+    ScrollTrigger.matchMedia({
+        '(min-width: 993px)': function () {
+            gsap.to(panels, {
+                xPercent: -100 * (panels.length - 1),
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '#hscroll-3-6',
+                    pin: true,
+                    pinSpacing: true,
+                    scrub: 1,
+                    snap: 1 / (panels.length - 1),
+                    // base vertical scrolling on how wide the container is so it feels more natural.
+                    end: () => '+=' + (container.scrollWidth - window.innerWidth)
+                }
+            });
+        },
+        '(max-width: 992px)': function () {
+            // no horizontal pinning; natural vertical scroll
+        }
+    });
+});
+

@@ -6,6 +6,8 @@
     <title>Secret Mountain</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome (stable CDN without integrity hash to avoid mismatches) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,7 +19,9 @@
         <div class="hero-text">
             <h1>THE REVOLUTION BEGINS</h1>
             <p>The Future of Music & Culture</p>
-            <button class="hero-button">WATCH VIDEO</button>
+            <a href="https://youtu.be/YC9QIIAY6SE?si=XH2WhS0zyh3RqOjY" target="_blank" rel="noopener noreferrer">
+                <button class="hero-button">WATCH VIDEO</button>
+            </a>
         </div>
     </section>
 
@@ -30,28 +34,282 @@
        </div>
     </section>
 
-    <div class="horizontal-scroll-wrapper">
-        <div class="horizontal-scroll-container">
-            <section class="section-three">
-               <div class="container">
-                <div class="section-three-content">
-                    <p class="section-three-subtitle">THE VISIONARY BEHIND SECRET MOUNTAIN</p>
-                    <h2 class="section-three-title">AR RAHMAN</h2>
-                    <img src="assets/images/ar-rahman.webp" alt="AR Rahman" class="ar-rahman-img">
-                </div>
-               </div>
-            </section>
-
-            <section class="section-four">
-               <div class="container">
-                <div class="section-four-content">
-                    <p class="section-four-text"><span class="highlight">MEET ARR,</span> the legendary composer and global music icon.</p>
-                    <img src="assets/images/ar-rahman-2.webp" alt="AR Rahman" class="ar-rahman-img-2">
-                </div>
-               </div>
-            </section>
+    <section class="section-three">
+       <div class="container">
+        <div class="section-three-content">
+            <p class="section-three-subtitle">THE VISIONARY BEHIND SECRET MOUNTAIN</p>
+            <h2 class="section-three-title">AR RAHMAN</h2>
+            <img src="assets/images/ar-rahman.webp" alt="AR Rahman" class="ar-rahman-img">
         </div>
-    </div>
+       </div>
+    </section>
+
+    <section class="section-four">
+       <div class="container">
+        <div class="section-four-content">
+            <p class="section-four-text"><span class="highlight">MEET ARR,</span> the legendary composer and global music icon.</p>
+            <!-- Full-width ARR intro video with overlay play/pause, same pattern as section seven -->
+            <div class="video-full-wrapper">
+                <video id="arrVideo" class="seven-video" preload="metadata" poster="assets/images/ar-rahman-2.webp" playsinline>
+                    <source src="assets/videos/arr-intro-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <button id="arrOverlayBtn" class="overlay-play" aria-label="Play">►</button>
+            </div>
+        </div>
+       </div>
+    </section>
+
+    <!-- Section Five (two columns on lg+: image+text and text+image) -->
+    <section class="section-five">
+       <div class="container">
+        <div class="row align-items-stretch">
+            <div class="col-lg-6 left-col text-center d-flex flex-column align-items-center">
+                <img src="assets/images/ar-rahman-3.webp" alt="AR Rahman" class="ar-rahman-img-3 img-fluid mx-auto d-block mb-3">
+                <p class="section-five-caption"><span class="caption-highlight">A.R. RAHMAN</span> made history by winning the Oscar, earning global recognition for his groundbreaking and soulful musical compositions.</p>
+            </div>
+            <div class="col-lg-6 right-col text-center d-flex flex-column justify-content-end align-items-center">
+                <p class="section-five-caption">Awarded the prestigious Padma Bhushan, Rahman’s music continues to inspire and unite millions around the world with its timeless brilliance.</p>
+                <img src="assets/images/ar-rahman-4.webp" alt="AR Rahman" class="ar-rahman-img-4 img-fluid mx-auto d-block mt-3">
+            </div>
+        </div>
+       </div>
+    </section>
+
+    <!-- Section Six: large banner + stats -->
+    <section class="section-six my-5">
+       <div class="container px-0">
+           <div class="six-banner text-center py-3">
+               <h2 class="six-banner-title">ONE MAN</h2>
+               <img src="assets/images/ar-rahman-5.png" alt="AR Rahman Banner" class="six-banner-img img-fluid w-100">
+           </div>
+           <div class="six-stats container text-center py-5">
+               <div class="row">
+                   <div class="col-lg-4 stat">
+                       <div class="stat-number">200+</div>
+                       <div class="stat-title">GLOBAL AWARDS & HONORS</div>
+                       <div class="stat-sub">Including 2 Oscars, 2 Grammys, a BAFTA & a Golden Globe</div>
+                   </div>
+                   <div class="col-lg-4 stat">
+                       <div class="stat-number">1B+</div>
+                       <div class="stat-title">TIMELESS COMPOSITIONS</div>
+                       <div class="stat-sub">Including 2 Oscars, 2 Grammys, a BAFTA & a Golden Globe</div>
+                   </div>
+                   <div class="col-lg-4 stat">
+                       <div class="stat-number">150+</div>
+                       <div class="stat-title">FILMS SCORED</div>
+                       <div class="stat-sub">Across 10+ languages, blending tradition with innovation.</div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </section>
+
+     <!-- Section Seven: image with heading (container) -->
+    <section class="section-seven py-5">
+       <div class="container text-center">
+           <h2 class="seven-title">Secret Mountain - Fusion of Music technology and Imagination</h2>
+       </div>
+
+       <!-- Full-width video (placed outside the centered container for edge-to-edge) -->
+       <div class="video-full-wrapper">
+           <video id="section7Video" class="seven-video" preload="metadata" poster="assets/images/section-seven.png" playsinline>
+               <source src="assets/videos/secret-mountain-video.mp4" type="video/mp4">
+               Your browser does not support the video tag.
+           </video>
+           <!-- Center overlay play/pause button (initially shows Play) -->
+           <button id="overlayPlayBtn" class="overlay-play" aria-label="Play">►</button>
+
+           <!-- No bottom custom controls: using overlay play/pause only -->
+       </div>
+    </section>
+
+    <!-- Section Eight: The Future of Music Performance -->
+    <section class="section-eight py-5">
+       <div class="container text-center">
+           <h2 class="eight-title">THE FUTURE OF MUSIC PERFORMANCE</h2>
+           <p class="eight-sub">Secret Mountain brings together diverse characters, celebrating unity, peace, and creativity through immersive storytelling and cutting-edge tech. Meet our artists</p>
+
+           <div class="row mt-4 g-4">
+               <div class="col-md-4 col-sm-6">
+                    <div class="artist-card">
+                        <img src="assets/images/blessing.png" alt="Blessing" class="artist-img default-img img-fluid">
+                        <img src="assets/images/blessing-hover.png" alt="Blessing hover" class="artist-img hover-img img-fluid">
+                        <div class="artist-caption">
+                            <div class="artist-name">BLESSING</div>
+                            <div class="artist-desc">Blessing, Vocalist from Congo-Brazzaville, master of drums and vibrant percussion.</div>
+                        </div>
+                    </div>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                   <div class="artist-card">
+                       <img src="assets/images/aafia.png" alt="Aafia" class="artist-img default-img img-fluid">
+                       <img src="assets/images/aafia-hover.png" alt="Aafia hover" class="artist-img hover-img img-fluid">
+                       <div class="artist-caption">
+                           <div class="artist-name">AAFIA</div>
+                           <div class="artist-desc">Aafia, A soulful blend of Erhu and Dutar, performed by talented Chinese vocalists.</div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                   <div class="artist-card">
+                       <img src="assets/images/ea-kam-singh.png" alt="EA Kam Singh" class="artist-img default-img img-fluid">
+                       <img src="assets/images/ea-kam-singh-hover.png" alt="EA Kam Singh hover" class="artist-img hover-img img-fluid">
+                       <div class="artist-caption">
+                           <div class="artist-name">EA-KAM SINGH</div>
+                           <div class="artist-desc">Ea kam singh, A French-Canadian Sikh vocalist and multi-instrumentalist who plays from the heart, not the sheet.</div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                   <div class="artist-card">
+                       <img src="assets/images/cara.png" alt="Cara" class="artist-img default-img img-fluid">
+                       <img src="assets/images/cara-hover.png" alt="Cara hover" class="artist-img hover-img img-fluid">
+                       <div class="artist-caption">
+                           <div class="artist-name">CARA</div>
+                           <div class="artist-desc">CARA , The Irish voice of harmony, flowing between Piano and Guitar.</div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                   <div class="artist-card">
+                       <img src="assets/images/zen-tam.png" alt="Zen Tam" class="artist-img default-img img-fluid">
+                       <img src="assets/images/zen-tam-hover.png" alt="Zen Tam hover" class="artist-img hover-img img-fluid">
+                       <div class="artist-caption">
+                           <div class="artist-name">ZEN TAMழ்</div>
+                           <div class="artist-desc">Zen Tamழ்: Tamilian vocalist, rapper, and percussionist redefining rhythm and identity.</div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                   <div class="artist-card">
+                       <img src="assets/images/david.png" alt="David" class="artist-img default-img img-fluid">
+                       <img src="assets/images/david-hover.png" alt="David hover" class="artist-img hover-img img-fluid">
+                       <div class="artist-caption">
+                           <div class="artist-name">DAVID</div>
+                           <div class="artist-desc">DAVID, A genre-fluid artist merging tradition and technology with Guitar, Synths & Keyboard.</div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </section>
+
+      <!-- Section Nine: Technology & Innovation Partners -->
+    <section class="section-nine py-5">
+        <div class="container text-center">
+            <h2 class="nine-title">TECHNOLOGY & INNOVATION PARTNERS</h2>
+            <p class="nine-sub">Powering the future of digital entertainment and fan engagement through AI, XR, game engines, Web3, and emerging technologies that redefine immersive experiences.</p>
+
+            <div class="row partners-row mt-4 g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="assets/images/hbar.png" alt="HBAR Foundation" class="partner-logo-img img-fluid">
+                        </div>
+                        <p>Fueling Web3 infrastructure with secure, scalable, and carbon-negative blockchain solutions—supporting dApps, tokenized assets, smart contracts, and fan engagement in music and collectibles.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="assets/images/google.png" alt="Google" class="partner-logo-img img-fluid">
+                        </div>
+                        <p>Leading AI designed to benefit humanity bringing digital characters and stories to life with expressive, responsive avatars for film, music, and virtual worlds. AI that augments, not replaces, human creativity.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="assets/images/nvidia.png" alt="NVIDIA" class="partner-logo-img img-fluid">
+                        </div>
+                        <p>Scalable, reliable, and unstoppable GPU-powered computing for AI—trusted infrastructure delivering high-performance AI compute at competitive rates.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="assets/images/hyper-real.png" alt="Hyperreal" class="partner-logo-img img-fluid">
+                        </div>
+                        <p>Bringing hyper-realistic digital avatars to life through motion capture, AI, VFX, and immersive storytelling—powered by Unreal Engine for next-gen human avatars.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Section Ten: Latest News -->
+    <section class="section-ten py-5">
+        <div class="container text-center">
+            <h2 class="ten-title">LATEST NEWS</h2>
+            <div class="row news-row mt-4 g-4">
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="assets/images/news-1.png" alt="Universal & Warner" class="img-fluid">
+                        </div>
+                        <div class="news-body">
+                            <h3 class="news-title">Universal & Warner Near AI Licensing Deals with Big Tech</h3>
+                            <p class="news-excerpt">Major labels Universal Music and Warner Music are reportedly finalizing licensing agreements with AI firms such as ElevenLabs, Suno, and OpenAI. These deals would permit AI platforms to legally use music catalogs for generating new content, with micropayments per usage, rather than arguing over copyright infringement.</p>
+                            <a href="#" class="news-cta">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="assets/images/news-2.png" alt="Spotify Removes Spam" class="img-fluid">
+                        </div>
+                        <div class="news-body">
+                            <h3 class="news-title">Spotify Removes 75 Million Spam Tracks Amid AI Content Boom</h3>
+                            <p class="news-excerpt">Spotify has purged 75 million spam or AI-generated tracks in the past year to counter misuse of its royalty system. The mass removal reflects the growing problem of AI tools generating low-quality or deceptive music solely to exploit streaming algorithms.</p>
+                            <a href="#" class="news-cta">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="assets/images/news-3.png" alt="Deezer AI Tagging" class="img-fluid">
+                        </div>
+                        <div class="news-body">
+                            <h3 class="news-title">Deezer Introduces AI Tagging to Combat Streaming Fraud</h3>
+                            <p class="news-excerpt">Deezer has rolled out the world’s first AI-tagging system to transparently label albums that contain AI-generated tracks. To preserve artist integrity, Deezer is excluding flagged AI content from recommendation algorithms and withholding royalties from tracks identified as part of fraudulent schemes.</p>
+                            <a href="#" class="news-cta">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Section Eleven: Full-bleed hero with background image -->
+    <section class="section-eleven">
+        <div class="section-eleven-inner container">
+            <h1 class="eleven-title">THE JOURNEY STARTS HERE</h1>
+            <p class="eleven-sub">Secret Mountain unites virtual avatars from around the world, blending music, storytelling, and technology to create a groundbreaking global experience.</p>
+            <button class="hero-button contact-cta">CONTACT US</button>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container text-center footer-inner">
+            <img src="assets/images/logo-second-section.svg" alt="Secret Mountain Logo" class="footer-logo" width="134" height="162">
+            <div class="social-icons mt-3">
+                <a href="https://x.com/SecretMountHQ" target="_blank" rel="noopener noreferrer" aria-label="Secret Mountain on X (Twitter)">
+                    <i class="fa-brands fa-x-twitter social-icon" aria-hidden="true"></i>
+                </a>
+                <i class="fa-brands fa-instagram social-icon" aria-hidden="true"></i>
+                <a href="https://www.linkedin.com/company/secret-mountain-hq" target="_blank" rel="noopener noreferrer" aria-label="Secret Mountain on LinkedIn">
+                    <i class="fa-brands fa-linkedin social-icon" aria-hidden="true"></i>
+                </a>
+                <i class="fa-brands fa-youtube social-icon" aria-hidden="true"></i>
+            </div>
+            <hr class="footer-sep">
+            <p class="copyright">Copyright © 2025, Radiant Souls. All Rights Reserved</p>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -66,4 +324,6 @@
     <script src="script.js"></script>
 </body>
 </html>
+    
+
 

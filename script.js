@@ -116,20 +116,7 @@ gsap.fromTo('.section-two-text',
     }
 });
 
-// Horizontal Scroll - Section 3 to Section 4
-const horizontalScroll = gsap.to('.horizontal-scroll-container', {
-    x: '-100vw',
-    ease: 'none',
-    force3D: true,
-    scrollTrigger: {
-        trigger: '.horizontal-scroll-wrapper',
-        start: 'top top',
-        end: '+=200%',
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1
-    }
-});
+// Horizontal scroller removed — sections 3 and 4 will animate on normal vertical scroll
 
 // Section Three - Title typing effect (within horizontal scroll)
 gsap.fromTo('.section-three-title',
@@ -142,33 +129,31 @@ gsap.fromTo('.section-three-title',
     ease: 'power2.inOut',
     scrollTrigger: {
         trigger: '.section-three',
-        start: 'left 70%',
-        toggleActions: 'play none none reverse',
-        containerAnimation: horizontalScroll
+        start: 'top 70%',
+        toggleActions: 'play none none reverse'
     }
 });
 
 // Section Three - AR Rahman image enlarge on scroll
 gsap.to('.ar-rahman-img',
 {
-    scale: 1.1,
+    scale: 1.06,
     ease: 'none',
     scrollTrigger: {
         trigger: '.ar-rahman-img',
         start: 'top 60%',
         end: 'bottom 40%',
-        scrub: 1,
-        containerAnimation: horizontalScroll
+        scrub: 1
     }
 });
 
-// Section Four - Sequenced animations
+// Section Four - Sequenced animations (disabled)
+/*
 const section4Timeline = gsap.timeline({
     scrollTrigger: {
         trigger: '.section-four',
-        start: 'left 60%',
-        toggleActions: 'play reverse play reverse',
-        containerAnimation: horizontalScroll
+        start: 'top 60%',
+        toggleActions: 'play reverse play reverse'
     }
 });
 
@@ -195,4 +180,107 @@ section4Timeline.fromTo('.section-four-text',
     ease: 'power2.out',
     force3D: true
 }, '+=0.3'); // Starts 0.3s after text completes
+*/
+
+// Section Seven - overlay play/pause only
+document.addEventListener('DOMContentLoaded', function () {
+    const video = document.getElementById('section7Video');
+    const overlayBtn = document.getElementById('overlayPlayBtn');
+    const wrapper = document.querySelector('.video-full-wrapper');
+
+    if (!video) return;
+
+    // Use overlay-only: hide native controls
+    video.controls = false;
+
+    function updateOverlay() {
+        if (!overlayBtn) return;
+        // Only set icon and aria-label. Visibility is handled by CSS :hover.
+        overlayBtn.textContent = video.paused ? '►' : '❚❚';
+        overlayBtn.setAttribute('aria-label', video.paused ? 'Play' : 'Pause');
+    }
+
+    if (overlayBtn) {
+        overlayBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (video.paused) video.play(); else video.pause();
+            updateOverlay();
+        });
+
+        if (wrapper) {
+            wrapper.addEventListener('mouseenter', function () {
+                // on hover set correct icon; visibility handled by CSS
+                overlayBtn.textContent = video.paused ? '►' : '❚❚';
+            });
+
+            // no mouseleave logic required; CSS hides the overlay when not hovered
+        }
+
+        // Manage overlay visibility via wrapper.playing class
+        video.addEventListener('play', function () {
+            if (wrapper) wrapper.classList.add('playing');
+            updateOverlay();
+        });
+        video.addEventListener('pause', function () {
+            if (wrapper) wrapper.classList.remove('playing');
+            updateOverlay();
+        });
+        video.addEventListener('ended', function () {
+            if (wrapper) wrapper.classList.remove('playing');
+            video.currentTime = 0;
+            updateOverlay();
+        });
+
+        // Initialize
+        updateOverlay();
+    }
+});
+
+// Section Four (ARR) - overlay play/pause only
+document.addEventListener('DOMContentLoaded', function () {
+    const video = document.getElementById('arrVideo');
+    const overlayBtn = document.getElementById('arrOverlayBtn');
+    // Scope the wrapper to the sibling container to avoid interfering with Section Seven
+    const wrapper = overlayBtn ? overlayBtn.closest('.video-full-wrapper') : null;
+
+    if (!video) return;
+
+    video.controls = false;
+
+    function updateOverlay() {
+        if (!overlayBtn) return;
+        overlayBtn.textContent = video.paused ? '►' : '❚❚';
+        overlayBtn.setAttribute('aria-label', video.paused ? 'Play' : 'Pause');
+    }
+
+    if (overlayBtn) {
+        overlayBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (video.paused) video.play(); else video.pause();
+            updateOverlay();
+        });
+
+        if (wrapper) {
+            wrapper.addEventListener('mouseenter', function () {
+                overlayBtn.textContent = video.paused ? '►' : '❚❚';
+            });
+        }
+
+        video.addEventListener('play', function () {
+            if (wrapper) wrapper.classList.add('playing');
+            updateOverlay();
+        });
+        video.addEventListener('pause', function () {
+            if (wrapper) wrapper.classList.remove('playing');
+            updateOverlay();
+        });
+        video.addEventListener('ended', function () {
+            if (wrapper) wrapper.classList.remove('playing');
+            video.currentTime = 0;
+            updateOverlay();
+        });
+
+        updateOverlay();
+    }
+});
 

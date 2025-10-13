@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -98,7 +99,7 @@ body {
     color: #ffffff;
     padding: 1rem 2rem;
     cursor: pointer;
-    opacity: 0;
+    opacity: 1;
     position: relative;
     overflow: hidden;
 }
@@ -213,19 +214,93 @@ body {
     height: auto;
 }
 
-/* Horizontal Scroll Wrapper */
-.horizontal-scroll-wrapper {
-    overflow: hidden;
+/* Ensure these sections behave as normal vertical blocks */
+.section-three,
+.section-four,
+.section-five {
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.horizontal-scroll-container {
-    display: flex;
-    width: 200vw;
+/* Horizontal scroller removed — sections flow vertically */
+
+
+/* Section Five */
+.section-five {
+    width: 100%;
+    background: #FFFFFF;
+    padding: 4rem 2rem;
 }
 
-.horizontal-scroll-container section {
-    width: 100vw;
-    flex-shrink: 0;
+.section-five .container {
+    margin: 0 auto;
+}
+
+.section-five-content {
+    /* Use Bootstrap row/grid for layout; keep gap via padding */
+    gap: 2rem;
+    align-items: center;
+}
+
+.section-five-left,
+.section-five-right {
+    /* Column width handled by Bootstrap's col-lg-6 */
+    padding: 0.5rem;
+}
+
+.ar-rahman-img-3,
+.ar-rahman-img-4 {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Section-five column alignment helpers */
+.section-five .left-col {
+    justify-content: flex-start; /* top aligned */
+    margin-bottom: 6rem;
+}
+
+.section-five .right-col {
+    justify-content: flex-end; /* bottom aligned */
+}
+
+.section-five .left-col .ar-rahman-img-3 {
+    margin-bottom: 2rem; /* left card bottom margin */
+}
+
+.section-five .right-col .ar-rahman-img-4 {
+    margin-top: 2rem; /* right card top margin */
+}
+
+.section-five-caption {
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-style: normal; /* Medium weight is indicated by 500 */
+    font-size: 24px;
+    line-height: 27px;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    font-variant: normal; /* disable small-caps */
+    margin: 0.5rem 0;
+    max-width: 700px;
+}
+
+.caption-highlight {
+    color: #C942F4;
+}
+
+/* Ensure any other text inside section-five uses same size */
+.section-five p,
+.section-five .section-five-caption,
+.section-five .section-three-subtitle,
+.section-five .section-four-text {
+    font-size: 24px;
+    line-height: 27px;
+    font-weight: 500;
+    color: #000000;
 }
 
 /* Section Four */
@@ -256,7 +331,6 @@ body {
     color: #FFFFFF;
     font-variant: small-caps;
     opacity: 1;
-    clip-path: inset(0 100% 0 0);
     width: 100%;
 }
 
@@ -271,8 +345,8 @@ body {
 .ar-rahman-img-2 {
     width: 100%;
     height: auto;
-    transform: scale(0);
-    opacity: 0;
+    transform: none;
+    opacity: 1;
 }
 
 /* Mobile Responsive */
@@ -331,6 +405,451 @@ body {
         font-size: 24px;
         line-height: 34px;
     }
+
+    /* Section Five responsive tweaks */
+    .section-five-caption {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .section-five img {
+        margin-bottom: 1rem;
+    }
+
+    /* Mobile: for the right column show image first then text (reverse order)
+       and remove desktop-only margins */
+    .section-five .right-col {
+        flex-direction: column-reverse !important;
+    }
+
+    .section-five .left-col .ar-rahman-img-3,
+    .section-five .right-col .ar-rahman-img-4 {
+        margin: 0 !important;
+    }
+
+    /* reset left-col outer margin added for desktop */
+    .section-five .left-col {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Section Six - banner + stats */
+.section-six {
+    width: 100%;
+    background: #000;
+    color: #fff;
+}
+
+.six-banner-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.six-banner-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-style: normal; /* Medium */
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    font-variant: small-caps;
+    color: #FFFFFF;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.six-stats .stat {
+    padding: 2rem 1rem;
+}
+
+.six-stats .stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Regular */
+    font-style: normal;
+    font-size: 96px;
+    line-height: 110px;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    font-variant: small-caps;
+    color: #C942F4;
+    margin-bottom: 0.5rem;
+}
+
+.six-stats .stat-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; /* Medium */
+    font-style: normal;
+    font-size: 24px;
+    line-height: 27px;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    font-variant: small-caps;
+    color: #FFFFFF;
+    margin-bottom: 0.5rem;
+}
+
+.six-stats .stat-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; /* Medium */
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFFFFF99; /* white with 60% opacity */
+}
+
+/* Section Seven */
+.section-seven {
+    width: 100%;
+    background: #000;
+    color: #fff;
+}
+
+.seven-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 36px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 1.25rem;
+}
+
+.seven-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+}
+
+/* Video wrapper for section seven */
+.video-full-wrapper {
+    width: 100%;
+    background: #000;
+    position: relative;
+}
+
+.video-full-wrapper .seven-video {
+    width: 100vw; /* edge to edge */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+}
+
+/* Center overlay play button */
+.overlay-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: 0;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    cursor: pointer;
+    transition: opacity 200ms ease;
+    opacity: 1; /* visible by default so user recognizes it's a video */
+    pointer-events: auto;
+}
+
+/* When video is playing, hide the overlay; keep it visible on hover */
+.video-full-wrapper.playing .overlay-play {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.video-full-wrapper:hover .overlay-play {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Custom controls bar below the video */
+/* Removed bottom custom controls: overlay play/pause used instead */
+
+/* Section Eight */
+.section-eight {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.eight-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 44px;
+    text-align: center;
+    color: #FFFFFF;
+    font-variant: small-caps;
+}
+
+.eight-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF99;
+    max-width: 900px;
+    margin: 0.75rem auto 1.5rem auto;
+}
+
+.artist-card {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.artist-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+/* Hover swap: stack default and hover images */
+.artist-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Keep the default image in-flow so the card has height */
+.artist-card .default-img {
+    position: relative; /* in-flow */
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 300ms ease, transform 300ms ease;
+}
+
+/* Hover image sits absolutely on top and covers the default */
+.artist-card .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.artist-card:hover .default-img {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+.artist-card:hover .hover-img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Caption that appears at the bottom on hover */
+.artist-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18px 20px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.8) 100%);
+    color: #FFFFFF99; /* default desc color */
+    transform: translateY(12px);
+    opacity: 0;
+    transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.artist-card .artist-name {
+    color: #FFFFFF; /* name color */
+    font-weight: 500;
+    text-align: left;
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: 0%;
+    text-transform: none;
+    margin-bottom: 6px;
+}
+
+.artist-card .artist-desc {
+    color: #FFFFFF99;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: left;
+}
+
+/* Show caption and apply border-radius on hover */
+.artist-card:hover .artist-caption {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.artist-card:hover {
+    border-radius: 1px;
+}
+
+/* Section Nine - Partners */
+.section-nine {
+    background: #fff; /* white background like attachment */
+    color: #111;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+.nine-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+.nine-sub {
+    max-width: 900px;
+    margin: 0 auto 1.5rem auto;
+    color: #666;
+}
+
+.partner-card {
+    background: #f6f6f6;
+    padding: 22px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 6px;
+}
+.partner-logo-img {
+    max-height: 44px;
+    width: auto;
+    display: block;
+    margin: auto;
+}
+.partner-card p {
+    color: #000000;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Section Ten - Latest News */
+.section-ten {
+    background: #000; /* dark background */
+    color: #fff;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+.ten-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+.news-card {
+    background: linear-gradient(180deg, #0b0b0b 0%, #0f0f0f 100%);
+    border-radius: 6px;
+    padding: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.news-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+.news-body {
+    padding: 10px 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1 0 auto;
+}
+.news-title {
+    font-size: 18px;
+    line-height: 27px;
+    margin: 0;
+    color: #ffffff;
+    font-weight: 500;
+}
+.news-excerpt {
+    color: #FFFFFF99;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0;
+    font-weight: 400;
+    flex: 1 0 auto;
+}
+.news-cta {
+    display: inline-block;
+    margin-top: 8px;
+    align-self: center; /* center horizontally inside the column */
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+}
+.news-cta:hover {
+    background: rgba(255,255,255,0.04);
+}
+
+.news-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+    transform: skewX(-25deg);
+    transition: left 0.8s ease;
+}
+.news-cta:hover::before {
+    left: 150%;
+}
+
+@media (max-width: 767px) {
+    .nine-title { font-size: 18px; }
 }
 
 @media (max-width: 480px) {
@@ -396,5 +915,134 @@ body {
         font-size: 20px;
         line-height: 28px;
     }
+}
+
+/* Section Eleven - full-width hero using section-eleven.png */
+.section-eleven {
+    width: 100%;
+    min-height: 520px;
+    background-image: url('assets/images/section-eleven.png');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FAFAFA;
+    position: relative;
+}
+.section-eleven::before {
+    /* subtle overlay for contrast */
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 100%);
+    z-index: 1;
+}
+.section-eleven-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 60px 20px;
+}
+    .section-eleven-inner .hero-button {
+         z-index: 3;
+    }
+.eleven-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 82px;
+    color: #FAFAFA;
+    margin-bottom: 18px;
+}
+.eleven-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; /* Medium */
+    font-style: normal;
+    font-size: 24px;
+    line-height: 36px;
+    color: rgba(255,255,255,0.6); /* #FFFFFF99 */
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto 26px auto;
+}
+.section-eleven .contact-cta {
+    /* reuse hero-button look; hero-button already defined, add spacing override */
+    margin-top: 12px;
+}
+
+@media (max-width: 992px) {
+    .eleven-title {
+        font-size: 48px;
+        line-height: 56px;
+    }
+    .section-eleven { min-height: 420px; }
+}
+
+@media (max-width: 480px) {
+    .eleven-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    .eleven-sub { font-size: 16px; line-height: 24px; }
+}
+
+/* Footer styles */
+.site-footer {
+    background: #0b0b0b;
+    color: #fff;
+    padding: 40px 0 24px;
+}
+.site-footer .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.footer-logo {
+    width: 134px;
+    height: 162px;
+    object-fit: contain;
+}
+.social-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.social-icons a,
+.social-icons i {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.social-icon {
+    font-size: 24px;
+    line-height: 1;
+    color: #ffffff;
+    opacity: 0.95;
+}
+.footer-sep {
+    width: 100%;
+    max-width: 900px;
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.1); /* #FFFFFF1A roughly */
+    margin-top: 12px;
+    margin-bottom: 8px;
+    opacity: 0.6;
+}
+.site-footer .copyright {
+    font-size: 14px;
+    color: #dcdcdc;
+    margin: 0 0 8px 0;
+}
+
+@media (max-width: 480px) {
+    .footer-logo { width: 100px; height: auto; }
+    .social-icon { width: 24px; height: 24px; }
 }
 

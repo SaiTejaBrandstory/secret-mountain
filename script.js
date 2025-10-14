@@ -141,11 +141,18 @@ document.addEventListener('DOMContentLoaded', function () {
             ];
             const emailBody = encodeURIComponent(bodyLines.join('\n'));
             
-            // Use Gmail compose URL for better cross-browser compatibility
-            const gmailUrl = `https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=${recipientEmail}&su=${emailSubject}&body=${emailBody}`;
+            // Detect if user is on mobile device
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             
-            // Open in new tab
-            window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+            if (isMobile) {
+                // Use mailto for mobile devices (works with native email apps)
+                const mailtoUrl = `mailto:${recipientEmail}?subject=${emailSubject}&body=${emailBody}`;
+                window.location.href = mailtoUrl;
+            } else {
+                // Use Gmail compose URL for desktop browsers
+                const gmailUrl = `https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=${recipientEmail}&su=${emailSubject}&body=${emailBody}`;
+                window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+            }
             
             closeModal();
         });

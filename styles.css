@@ -561,9 +561,27 @@ html, body { overscroll-behavior: none; }
 .video-full-wrapper .seven-video {
     width: 100vw; /* edge to edge */
     max-width: 100%;
-    height: auto;
+    height: 600px;
+    max-height: 600px;
     display: block;
     background: #000;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Responsive heights for video */
+@media (max-width: 992px) {
+    .video-full-wrapper .seven-video {
+        height: 400px;
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .video-full-wrapper .seven-video {
+        height: 300px;
+        max-height: 300px;
+    }
 }
 
 /* Center overlay play button */
@@ -802,7 +820,7 @@ html, body { overscroll-behavior: none; }
 }
 .news-image img {
     width: 100%;
-    height: 180px;
+    height: 250px;
     object-fit: cover;
     display: block;
 }
@@ -820,6 +838,10 @@ html, body { overscroll-behavior: none; }
     margin: 0;
     color: #ffffff;
     font-weight: 500;
+    /* Single line with ellipsis */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .news-excerpt {
     color: #FFFFFF99;
@@ -828,6 +850,13 @@ html, body { overscroll-behavior: none; }
     margin: 0;
     font-weight: 400;
     flex: 1 0 auto;
+    /* 4 lines with ellipsis */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .news-cta {
     display: inline-block;

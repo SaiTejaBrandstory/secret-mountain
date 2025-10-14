@@ -129,8 +129,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            const mailtoTo = 'enquiry@radiantsouls.ai';
-            const mailtoSubject = encodeURIComponent(`[${type}] ${subject}`);
+            const recipientEmail = 'enquiry@radiantsouls.ai';
+            const emailSubject = encodeURIComponent(`[${type}] ${subject}`);
             const bodyLines = [
                 `Name: ${name}`,
                 `Email: ${email}`,
@@ -139,9 +139,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Message:',
                 subject
             ];
-            const mailtoBody = encodeURIComponent(bodyLines.join('\n'));
-            const href = `mailto:${mailtoTo}?subject=${mailtoSubject}&body=${mailtoBody}`;
-            window.location.href = href;
+            const emailBody = encodeURIComponent(bodyLines.join('\n'));
+            
+            // Use Gmail compose URL for better cross-browser compatibility
+            const gmailUrl = `https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=${recipientEmail}&su=${emailSubject}&body=${emailBody}`;
+            
+            // Open in new tab
+            window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+            
             closeModal();
         });
     }

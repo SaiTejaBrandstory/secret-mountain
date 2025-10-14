@@ -1178,14 +1178,17 @@ html, body { overscroll-behavior: none; }
 }
 .contact-form .contact-row { position: relative; }
 .contact-form .contact-row select:after { content: none; }
-.contact-dialog:after {
-    /* dropdown chevron */
+
+/* Dropdown arrow only for select field */
+.contact-form .contact-row:has(select)::after {
     content: '\25BE';
     position: absolute;
     right: 36px;
-    top: 116px; /* roughly aligns with select row */
+    top: 50%;
+    transform: translateY(-50%);
     color: rgba(255,255,255,0.8);
     pointer-events: none;
+    z-index: 10;
 }
 .contact-actions { text-align: center; margin-top: 4px; }
 .contact-submit {
@@ -1203,7 +1206,7 @@ html, body { overscroll-behavior: none; }
 @media (max-width: 640px) {
     .contact-dialog { margin: 6vh 12px; padding: 20px 16px; }
     .contact-row { grid-template-columns: 1fr; gap: 12px; }
-    .contact-dialog:after { right: 28px; top: 168px; }
+    .contact-form .contact-row:has(select)::after { right: 28px; }
 }
 
 @media (max-width: 480px) {

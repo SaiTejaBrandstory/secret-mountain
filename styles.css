@@ -907,7 +907,7 @@ html, body { overscroll-behavior: none; }
 
 @media (max-width: 480px) {
     .hero {
-        height: 70svh;
+        height: 100svh;
     }
     
     .banner {
